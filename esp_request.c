@@ -695,7 +695,7 @@ int req_perform(request_t *req)
             break;
         }
     } while(1);
-    if(req->protocol == PROTOCOL_HTTP) {
+    if(req->protocol == PROTOCOL_HTTP && !req->is_websocket) {
         req->_close(req);
     }
     return req->response->status_code;
